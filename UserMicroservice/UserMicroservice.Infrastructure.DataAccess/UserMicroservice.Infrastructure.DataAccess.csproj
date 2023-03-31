@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\UserMicroservice.Domain.Core\UserMicroservice.Domain.Infastructure.csproj" />
   </ItemGroup>
 
 </Project>

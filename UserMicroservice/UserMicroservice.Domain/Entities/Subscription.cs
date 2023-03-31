@@ -9,5 +9,5 @@ public class Subscription : IEntity
     public SubscriptionType Type { get; set; }
     public DateTime startDate { get; set; }
     public DateTime endDate { get; set; }
-    public User? User { get; set; }
+    public User User { get; set; } = null!;
 }
