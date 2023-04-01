@@ -6,13 +6,35 @@ namespace UserMicroservice.Infrastructure.BusinessLogic.Services;
 
 public class UserService : IUserService
 {
-    public List<User> GetUsers()
+    private readonly IUnitOfWork _unitOfWork;
+
+    public UserService(IUnitOfWork unitOfWork)
+    {
+        _unitOfWork = unitOfWork;
+    }
+
+    public void AddUserWithSubscription(User user)
+    {
+        _unitOfWork.SaveChanges(() =>
+        {
+            _unitOfWork.UsersRepository.Add(user);
+        });
+    }
+
+    public async Task<List<User>> GetUsers()
+    {
+        return await _unitOfWork.UsersRepository.GetAll();
+    }
+
+    public async Task<User> GetById(int id) => await _unitOfWork.UsersRepository.GetItem(id);
+
+    public Task<List<User>> GetUsersBySubscriptionType(SubscriptionType subscriptionType)
     {
         throw new NotImplementedException();
     }
 
-    public List<User> GetUsersBySubscriptionType(SubscriptionType subscriptionType)
+    public Task<List<User>> GetAllWithSubscriptions()
     {
-        throw new NotImplementedException();
+        return _unitOfWork.UsersRepository.GetAllWithSubscriptions();
     }
 }

@@ -10,5 +10,7 @@ public class User : IEntity
 
     public string Email { get; set; } = string.Empty;
 
+    public int SubscriptionId { get; set; }
+
     public Subscription Subscription { get; set; } = null!;
 }
