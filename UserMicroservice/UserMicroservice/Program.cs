@@ -1,13 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 
+using UserMicroservice.Domain.Core.Entities;
+using UserMicroservice.Domain.Infastructure.Interfaces;
+using UserMicroservice.Infrastructure.BusinessLogic.Services;
+using UserMicroservice.Infrastructure.DataAccess;
 using UserMicroservice.Infrastructure.DataAccess.DB;
+using UserMicroservice.Infrastructure.DataAccess.Repositories;
 using UserMicroservice.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => 
+    options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    );
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -19,8 +27,14 @@ builder.Services.Configure<ConnectionOptions>(connectionOptionsSection);
 
 var connectionOptions = connectionOptionsSection.Get<ConnectionOptions>();
 
+//Dependencies
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionOptions.DbConnectionString));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IRepository<Subscription>, SubscriptionsRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

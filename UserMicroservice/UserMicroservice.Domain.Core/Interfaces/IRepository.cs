@@ -3,8 +3,8 @@
 public interface IRepository<TEntity>
         where TEntity : class
 {
-    Task Add(TEntity entity);
-    Task<TEntity> GetItem(int id);
+    void Add(TEntity entity);
+    Task<TEntity?> GetItem(int id);
     Task<List<TEntity>> GetAll();
     void Update(TEntity entity);
     void DeleteByItem(TEntity entity);

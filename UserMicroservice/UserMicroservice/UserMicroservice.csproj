@@ -21,7 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserMicroservice.Application\UserMicroservice.Application.csproj" />
+    <ProjectReference Include="..\UserMicroservice.Domain.Core\UserMicroservice.Domain.Infastructure.csproj" />
+    <ProjectReference Include="..\UserMicroservice.Infrastructure.BusinessLogic\UserMicroservice.Infrastructure.BusinessLogic.csproj" />
     <ProjectReference Include="..\UserMicroservice.Infrastructure.DataAccess.DB\UserMicroservice.Infrastructure.DataAccess.DB.csproj" />
+    <ProjectReference Include="..\UserMicroservice.Infrastructure.DataAccess\UserMicroservice.Infrastructure.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

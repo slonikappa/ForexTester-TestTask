@@ -1,37 +1,47 @@
-﻿using UserMicroservice.Domain.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+
+using UserMicroservice.Domain.Core.Entities;
 using UserMicroservice.Domain.Infastructure.Interfaces;
+using UserMicroservice.Infrastructure.DataAccess.DB;
 
 namespace UserMicroservice.Infrastructure.DataAccess.Repositories;
 
-public class UsersRepository : IRepository<User>
+public sealed class UsersRepository : IUsersRepository
 {
-    public Task Add(User entity)
+    private readonly ApplicationDbContext _ctx;
+
+    public UsersRepository(ApplicationDbContext ctx)
     {
-        throw new NotImplementedException();
+        _ctx = ctx;
     }
+
+    public void Add(User entity) => _ctx.Users.Add(entity);
 
     public void DeleteById(int id)
     {
-        throw new NotImplementedException();
+        var entity = _ctx.Users.Find(id);
+
+        if (entity is null)
+        {
+            throw new NullReferenceException();
+        }
+
+        _ctx.Users.Remove(entity);
     }
 
-    public void DeleteByItem(User entity)
+    public void DeleteByItem(User entity) => _ctx.Users.Remove(entity);
+
+    public async Task<List<User>> GetAll() => await _ctx.Users.ToListAsync();
+
+    public async Task<List<User>> GetAllWithSubscriptions()
     {
-        throw new NotImplementedException();
+        return await _ctx
+            .Users
+            .Include(user => user.Subscription)
+            .ToListAsync();
     }
 
-    public Task<List<User>> GetAll()
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<User?> GetItem(int id) => await _ctx.Users.FindAsync(id);
 
-    public Task<User> GetItem(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(User entity)
-    {
-        throw new NotImplementedException();
-    }
+    public void Update(User entity) => _ctx.Users.Update(entity);
 }

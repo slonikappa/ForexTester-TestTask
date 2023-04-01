@@ -5,6 +5,8 @@ namespace UserMicroservice.Domain.Infastructure.Interfaces;
 
 public interface IUserService
 {
-    List<User> GetUsers();
-    List<User> GetUsersBySubscriptionType(SubscriptionType subscriptionType);
+    Task<List<User>> GetUsers();
+    Task<User> GetById(int id);
+    Task<List<User>> GetAllWithSubscriptions();
+    Task<List<User>> GetUsersBySubscriptionType(SubscriptionType subscriptionType);
 }
