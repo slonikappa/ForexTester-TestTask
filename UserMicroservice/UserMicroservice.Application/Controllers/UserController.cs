@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+using UserMicroservice.Domain.Core.Entities;
+using UserMicroservice.Domain.Infastructure.Interfaces;
+
 namespace UserMicroservice.Application.Controllers;
 
 [Route("api/[controller]")]
@@ -8,17 +11,20 @@ namespace UserMicroservice.Application.Controllers;
 public class UserController : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
+    private readonly IUserService _userService;
 
-    public UserController(ILogger<UserController> logger)
+    public UserController(ILogger<UserController> logger,
+        IUserService userService)
     {
         _logger = logger;
+        _userService = userService;
     }
 
     // GET: api/<UserController>
     [HttpGet]
-    public IEnumerable<string> Get()
+    public async Task<List<User>> Get()
     {
-        return new string[] { "value1", "value2" };
+        return await _userService.GetUsers();
     }
 
     // GET api/<UserController>/5
@@ -26,6 +32,13 @@ public class UserController : ControllerBase
     public string Get(int id)
     {
         return "value";
+    }
+
+    // GET api/<UserController>/5
+    [HttpGet("/user-with-subscription")]
+    public async Task<List<User>> GetWithSubscription()
+    {
+        return await _userService.GetAllWithSubscriptions();
     }
 
     // POST api/<UserController>
