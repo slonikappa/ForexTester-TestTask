@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsMicroservice.Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsMicroservice.Domain.Core", "ProjectsMicroservice.Domain.Core\ProjectsMicroservice.Domain.Core.csproj", "{1D14B84F-3D55-41E1-B2E0-EE49861D25E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsMicroservice.Domain.Infrastructure", "ProjectsMicroservice.Domain.Infrastructure\ProjectsMicroservice.Domain.Infrastructure.csproj", "{3CF7E352-A311-4E24-A3C0-CE8A657EC0FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsMicroservice.Inrastructure.BusinessLogic", "ProjectsMicroservice.Inrastructure.BusinessLogic\ProjectsMicroservice.Inrastructure.BusinessLogic.csproj", "{81E2BD65-8744-4268-846B-2CB5BCA40E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsMicroservice.Infrastructure.DataAccess", "ProjectsMicroservice.Infrastructure.DataAccess\ProjectsMicroservice.Infrastructure.DataAccess.csproj", "{4840DA40-AEDA-45B4-B8FB-4DBCFA9A139F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectMicroservices.Infrastructure.External", "ProjectMicroservices.Infrastructure.External\ProjectMicroservices.Infrastructure.External.csproj", "{7865E734-C6E0-4F12-BE9A-093E8EC19609}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +35,22 @@ Global
 		{1D14B84F-3D55-41E1-B2E0-EE49861D25E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D14B84F-3D55-41E1-B2E0-EE49861D25E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D14B84F-3D55-41E1-B2E0-EE49861D25E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF7E352-A311-4E24-A3C0-CE8A657EC0FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF7E352-A311-4E24-A3C0-CE8A657EC0FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF7E352-A311-4E24-A3C0-CE8A657EC0FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF7E352-A311-4E24-A3C0-CE8A657EC0FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E2BD65-8744-4268-846B-2CB5BCA40E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E2BD65-8744-4268-846B-2CB5BCA40E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E2BD65-8744-4268-846B-2CB5BCA40E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E2BD65-8744-4268-846B-2CB5BCA40E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4840DA40-AEDA-45B4-B8FB-4DBCFA9A139F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4840DA40-AEDA-45B4-B8FB-4DBCFA9A139F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4840DA40-AEDA-45B4-B8FB-4DBCFA9A139F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4840DA40-AEDA-45B4-B8FB-4DBCFA9A139F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7865E734-C6E0-4F12-BE9A-093E8EC19609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7865E734-C6E0-4F12-BE9A-093E8EC19609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7865E734-C6E0-4F12-BE9A-093E8EC19609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7865E734-C6E0-4F12-BE9A-093E8EC19609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
