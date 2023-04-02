@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectMicroservices.Infrastructure.External\ProjectMicroservices.Infrastructure.External.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Domain.Core\ProjectsMicroservice.Domain.Core.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Domain.Infrastructure\ProjectsMicroservice.Domain.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Infrastructure.DataAccess\ProjectsMicroservice.Infrastructure.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
