@@ -10,7 +10,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectMicroservices.Infrastructure.External\ProjectMicroservices.Infrastructure.External.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Application\ProjectsMicroservice.Application.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Domain.Core\ProjectsMicroservice.Domain.Core.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Domain.Infrastructure\ProjectsMicroservice.Domain.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Infrastructure.DataAccess\ProjectsMicroservice.Infrastructure.DataAccess.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Inrastructure.BusinessLogic\ProjectsMicroservice.Inrastructure.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>
