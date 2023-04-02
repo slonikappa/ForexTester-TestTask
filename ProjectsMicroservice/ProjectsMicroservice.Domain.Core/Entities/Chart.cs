@@ -1,10 +1,10 @@
 ﻿using ProjectsMicroservice.Domain.Core.Enums;
 
-namespace ProjectsMicroservice.Domain.Core.Models;
+namespace ProjectsMicroservice.Domain.Core.Entities;
 
 public class Chart
 {
     public SupportedSymbol Symbol { get; set; }
     public ChartTimeframe Timeframe { get; set; }
-    internal List<Indicator> Indicators { get; set; } = new();
+    public List<Indicator> Indicators { get; set; } = new();
 }

@@ -1,8 +1,8 @@
 ﻿using ProjectsMicroservice.Domain.Core.Enums;
 
-namespace ProjectsMicroservice.Domain.Core.Models;
+namespace ProjectsMicroservice.Domain.Core.Entities;
 
-internal class Indicator
+public class Indicator
 {
     public IndicatorName Name { get; set; }
     public string Parameters { get; set; } = string.Empty;
