@@ -1,4 +1,4 @@
-﻿namespace UserMicroservice.Options;
+﻿namespace UserMicroservice.Domain.Core.Options;
 
 public class ConnectionOptions
 {

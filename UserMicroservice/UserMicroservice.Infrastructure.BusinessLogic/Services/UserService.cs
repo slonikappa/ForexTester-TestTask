@@ -13,9 +13,9 @@ public class UserService : IUserService
         _unitOfWork = unitOfWork;
     }
 
-    public void AddUserWithSubscription(User user)
+    public async Task AddUserWithSubscription(User user)
     {
-        _unitOfWork.SaveChanges(() =>
+        await _unitOfWork.SaveChanges(() =>
         {
             _unitOfWork.UsersRepository.Add(user);
         });
@@ -28,13 +28,27 @@ public class UserService : IUserService
 
     public async Task<User> GetById(int id) => await _unitOfWork.UsersRepository.GetItem(id);
 
-    public Task<List<User>> GetUsersBySubscriptionType(SubscriptionType subscriptionType)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<User>> GetUsersBySubscriptionType(SubscriptionType subscriptionType)
+        => await _unitOfWork.UsersRepository.GetAllBySubscriptionType(subscriptionType);
 
     public Task<List<User>> GetAllWithSubscriptions()
     {
         return _unitOfWork.UsersRepository.GetAllWithSubscriptions();
+    }
+
+    public async Task UpdateUser(User userToUpdate)
+    {
+        await _unitOfWork.SaveChanges(() =>
+        {
+            _unitOfWork.UsersRepository.Update(userToUpdate);
+        });
+    }
+
+    public async Task RemoveUser(User user)
+    {
+        await _unitOfWork.SaveChanges(() =>
+        {
+            _unitOfWork.UsersRepository.DeleteByItem(user);
+        });
     }
 }

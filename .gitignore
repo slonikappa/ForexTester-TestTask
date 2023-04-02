@@ -457,3 +457,5 @@ $RECYCLE.BIN/
 ## Custom
 ##
 appsettings.Development.json
+mongo-data/
+postgres-data/

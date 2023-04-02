@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+using UserMicroservice.Application.Mappers;
+using UserMicroservice.Application.Models;
 using UserMicroservice.Domain.Core.Entities;
+using UserMicroservice.Domain.Core.Enums;
 using UserMicroservice.Domain.Infastructure.Interfaces;
 
 namespace UserMicroservice.Application.Controllers;
@@ -12,50 +15,108 @@ public class UserController : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
     private readonly IUserService _userService;
+    private readonly IApplicationMapper _mapper;
 
     public UserController(ILogger<UserController> logger,
-        IUserService userService)
+        IUserService userService,
+        IApplicationMapper mapper)
     {
         _logger = logger;
         _userService = userService;
+        _mapper = mapper;
     }
 
-    // GET: api/<UserController>
     [HttpGet]
-    public async Task<List<User>> Get()
+    public async Task<IActionResult> Get()
     {
-        return await _userService.GetUsers();
+        var users = await _userService.GetUsers();
+
+        if (!users.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(users);
     }
 
-    // GET api/<UserController>/5
     [HttpGet("{id}")]
-    public string Get(int id)
+    public async Task<IActionResult> Get(int id)
     {
-        return "value";
+        var user = await _userService.GetById(id);
+
+        if(user is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(user);
     }
 
-    // GET api/<UserController>/5
-    [HttpGet("/user-with-subscription")]
-    public async Task<List<User>> GetWithSubscription()
+    [HttpGet("including-subscription")]
+    public async Task<IActionResult> GetWithSubscription()
     {
-        return await _userService.GetAllWithSubscriptions();
+        var users = await _userService.GetAllWithSubscriptions();
+
+        if (!users.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(users);
     }
 
-    // POST api/<UserController>
+    [HttpGet("all-by-subscription/{subscriptionType}")]
+    public async Task<IActionResult> GetAllBySubscriptionType(SubscriptionType subscriptionType)
+    {
+        var users = await _userService.GetUsersBySubscriptionType(subscriptionType);
+
+        if (!users.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(users);
+    }
+
     [HttpPost]
-    public void Post([FromBody] string value)
+    public IActionResult Add([FromBody] AddUserRequestModel model)
     {
+        var userToAdd = _mapper.AddModelToUserWithSubscription(model);
+
+        _userService.AddUserWithSubscription(userToAdd);
+
+        return CreatedAtAction(nameof(GetWithSubscription), userToAdd);
     }
 
-    // PUT api/<UserController>/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    public async Task<IActionResult> Put([FromRoute] int id, [FromBody] UpdateUserRequestModel model)
     {
+        var user = await _userService.GetById(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        var userToUpdate = _mapper.UpdateModelToUser(user, model);
+
+        await _userService.UpdateUser(userToUpdate);
+
+        return NoContent();
     }
 
-    // DELETE api/<UserController>/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
+        var user = await _userService.GetById(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        await _userService.RemoveUser(user);
+
+        return NoContent();
     }
 }

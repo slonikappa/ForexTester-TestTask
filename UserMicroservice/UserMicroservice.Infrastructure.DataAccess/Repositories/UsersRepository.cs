@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using UserMicroservice.Domain.Core.Entities;
+using UserMicroservice.Domain.Core.Enums;
 using UserMicroservice.Domain.Infastructure.Interfaces;
 using UserMicroservice.Infrastructure.DataAccess.DB;
 
@@ -31,13 +32,22 @@ public sealed class UsersRepository : IUsersRepository
 
     public void DeleteByItem(User entity) => _ctx.Users.Remove(entity);
 
-    public async Task<List<User>> GetAll() => await _ctx.Users.ToListAsync();
+    public async Task<List<User>> GetAll() => await _ctx.Users.AsNoTracking().ToListAsync();
 
     public async Task<List<User>> GetAllWithSubscriptions()
     {
         return await _ctx
             .Users
             .Include(user => user.Subscription)
+            .AsNoTracking()
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<User>> GetAllBySubscriptionType(SubscriptionType subscriptionType)
+    {
+        return await _ctx.Users
+            .Where(user => user.Subscription.Type == subscriptionType)
+            .AsNoTracking()
             .ToListAsync();
     }
 
