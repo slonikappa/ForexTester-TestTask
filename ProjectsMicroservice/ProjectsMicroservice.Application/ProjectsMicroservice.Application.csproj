@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectMicroservices.Infrastructure.External\ProjectMicroservices.Infrastructure.External.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Domain.Infrastructure\ProjectsMicroservice.Domain.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProjectsMicroservice.Infrastructure.DataAccess\ProjectsMicroservice.Infrastructure.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
