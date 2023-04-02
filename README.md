@@ -237,6 +237,8 @@ Required answer:
 }
 
 
-#TODO:
+# TODO:
 - Tests to be added
 - TODOs to be resolved
+- Add ExceptionHandlingMiddleware to the microservices
+- Make example data in readme look not as bad as now
