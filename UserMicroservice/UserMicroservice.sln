@@ -5,17 +5,19 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice", "UserMicroservice\UserMicroservice.csproj", "{BD13ED9D-EA0F-4416-9F02-22EA64DFD165}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Application", "UserMicroservice.Application\UserMicroservice.Application.csproj", "{7EB43D83-FC7D-4E8A-AFB3-94F05243F1ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Application", "UserMicroservice.Application\UserMicroservice.Application.csproj", "{7EB43D83-FC7D-4E8A-AFB3-94F05243F1ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Domain.Core", "UserMicroservice.Domain\UserMicroservice.Domain.Core.csproj", "{500BC4FA-72BC-43B5-997B-4F0CD4BC0C7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Domain.Core", "UserMicroservice.Domain\UserMicroservice.Domain.Core.csproj", "{500BC4FA-72BC-43B5-997B-4F0CD4BC0C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Domain.Infastructure", "UserMicroservice.Domain.Core\UserMicroservice.Domain.Infastructure.csproj", "{1CBF7714-CBAF-4D70-B1B0-CBEE4C3BA6D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Domain.Infastructure", "UserMicroservice.Domain.Core\UserMicroservice.Domain.Infastructure.csproj", "{1CBF7714-CBAF-4D70-B1B0-CBEE4C3BA6D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Infrastructure.DataAccess", "UserMicroservice.Infrastructure.DataAccess\UserMicroservice.Infrastructure.DataAccess.csproj", "{B9C96149-F676-4E56-9C84-12B1EC493476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Infrastructure.DataAccess", "UserMicroservice.Infrastructure.DataAccess\UserMicroservice.Infrastructure.DataAccess.csproj", "{B9C96149-F676-4E56-9C84-12B1EC493476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Infrastructure.BusinessLogic", "UserMicroservice.Infrastructure.BusinessLogic\UserMicroservice.Infrastructure.BusinessLogic.csproj", "{8D8E1C91-7EB4-4494-B3FA-F89781FBBDDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Infrastructure.BusinessLogic", "UserMicroservice.Infrastructure.BusinessLogic\UserMicroservice.Infrastructure.BusinessLogic.csproj", "{8D8E1C91-7EB4-4494-B3FA-F89781FBBDDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Infrastructure.DataAccess.DB", "UserMicroservice.Infrastructure.DataAccess.DB\UserMicroservice.Infrastructure.DataAccess.DB.csproj", "{B80900D3-69C4-4E58-9921-EBE00FC58F87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice.Infrastructure.DataAccess.DB", "UserMicroservice.Infrastructure.DataAccess.DB\UserMicroservice.Infrastructure.DataAccess.DB.csproj", "{B80900D3-69C4-4E58-9921-EBE00FC58F87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroservice.Tests", "UserMicroservice.Tests\UserMicroservice.Tests.csproj", "{328629C9-84DE-489C-82BE-46209B837577}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{B80900D3-69C4-4E58-9921-EBE00FC58F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B80900D3-69C4-4E58-9921-EBE00FC58F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B80900D3-69C4-4E58-9921-EBE00FC58F87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328629C9-84DE-489C-82BE-46209B837577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328629C9-84DE-489C-82BE-46209B837577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328629C9-84DE-489C-82BE-46209B837577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328629C9-84DE-489C-82BE-46209B837577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
