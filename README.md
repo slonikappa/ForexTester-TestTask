@@ -1,21 +1,21 @@
 # ForexTesters-TestTask
 
-Test task for Forest Testers vacancy
-Develop a microservice-based Web API applications
-Description:
-Develop a simple microservice-based Web API application that performs CRUD (Create, Read, Update, Delete) operations on a database.
-The application should have two microservices: one for handling user information, and another for handling projects.
-Microservices should use a SQL database (PostgreSQL) for users and a NoSQL database (MongoDB) for projects.
-The application should be containerized using Docker and docker-compose.
-Write 1 unit test for the application using xUnit and Moq.
-Write 1 integration tests for the application to ensure that the microservices are communicating correctly and the data is being stored and retrieved correctly from the databases.
-Deliverables:
-The source code of the application.
-Solution that runs 2 Web API services and databases in docker-compose.
+Test task for Forex Testers vacancy
+## Develop a microservice-based Web API applications
+### Description:
+- Develop a simple microservice-based Web API application that performs CRUD (Create, Read, Update, Delete) operations on a database.
+- The application should have two microservices: one for handling user information, and another for handling projects.
+- Microservices should use a SQL database (PostgreSQL) for users and a NoSQL database (MongoDB) for projects.
+- The application should be containerized using Docker and docker-compose.
+- Write 1 unit test for the application using xUnit and Moq.
+- Write 1 integration tests for the application to ensure that the microservices are communicating correctly and the data is being stored and retrieved correctly from the databases.
+### Deliverables:
+- The source code of the application.
+- Solution that runs 2 Web API services and databases in docker-compose.
 
-Additional information:
+#### Additional information:
 PostgreSQL database should contains 2 tables:
-users:
+1. users:
 - id
 - name
 - email
