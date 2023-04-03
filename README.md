@@ -7,7 +7,7 @@ Test task for Forex Testers vacancy
 - The application should have two microservices: one for handling user information, and another for handling projects.
 - Microservices should use a SQL database (PostgreSQL) for users and a NoSQL database (MongoDB) for projects.
 - The application should be containerized using Docker and docker-compose.
-- Write 1 unit test for the application using xUnit and Moq.
+- Write 1 unit test for the application using xUnit and Moq. (2 tests added to UserMicroservice)
 - Write 1 integration tests for the application to ensure that the microservices are communicating correctly and the data is being stored and retrieved correctly from the databases.
 ### Deliverables:
 - The source code of the application.
@@ -238,7 +238,7 @@ Required answer:
 
 
 # TODO:
-- Tests to be added
+- Integration Tests to be added
 - TODOs to be resolved
 - Add ExceptionHandlingMiddleware to the microservices
 - Make example data in readme look not as bad as now
